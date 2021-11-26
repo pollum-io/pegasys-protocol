@@ -5,7 +5,8 @@ import "hardhat-gas-reporter";
 import "hardhat-tracer";
 import { task, HardhatUserConfig } from "hardhat/config";
 import "ts-node/register";
-
+const dotenv = require('dotenv');
+dotenv.config();
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
@@ -37,7 +38,7 @@ const config: HardhatUserConfig = {
           },
           outputSelection: {
             "*": {
-                "*": ["storageLayout"],
+              "*": ["storageLayout"],
             },
           },
         }
@@ -54,7 +55,7 @@ const config: HardhatUserConfig = {
           },
           outputSelection: {
             "*": {
-                "*": ["storageLayout"],
+              "*": ["storageLayout"],
             },
           },
         }
@@ -68,7 +69,7 @@ const config: HardhatUserConfig = {
           },
           outputSelection: {
             "*": {
-                "*": ["storageLayout"],
+              "*": ["storageLayout"],
             },
           },
         }
@@ -76,42 +77,12 @@ const config: HardhatUserConfig = {
     ]
   },
   networks: {
-    localhost: {
+    tanenbaum: {
+      url: 'https://rpc.tanenbaum.io',
       gasPrice: 470000000000,
-      chainId: 43114,
-      url: "http://127.0.0.1:8545/ext/bc/C/rpc"
+      chainId: 5700,
+      accounts: [process.env.DEPLOY_ACCOUNT_PRIVATE_KEY]
     },
-    hardhat: {
-      gasPrice: 470000000000,
-      chainId: 43114,
-      initialDate: "2020-10-10",
-      forking: {
-        url: 'https://api.avax.network/ext/bc/C/rpc', 
-        enabled: true
-      },
-      accounts: {
-        accountsBalance: "1000000000000000000000000000000", 
-        count: 50
-      }
-    },
-    avash: {
-      url: 'http://localhost:9650/ext/bc/C/rpc',
-      gasPrice: 470000000000,
-      chainId: 43112,
-      accounts: ["0x56289e99c94b6912bfc12adc093c9b51124f0dc54ac7a766b2bc5ccf558d8027"]
-    },
-    fuji: {
-      url: 'https://api.avax-test.network/ext/bc/C/rpc',
-      gasPrice: 470000000000,
-      chainId: 43113,
-      accounts: []
-    },
-    mainnet: {
-      url: 'https://api.avax.network/ext/bc/C/rpc',
-      gasPrice: 470000000000,
-      chainId: 43114,
-      accounts: []
-    }
   },
   contractSizer: {
     alphaSort: false,
@@ -120,7 +91,7 @@ const config: HardhatUserConfig = {
   },
   gasReporter: {
     enabled: true,
-    showTimeSpent: true, 
+    showTimeSpent: true,
     gasPrice: 225
   },
 };

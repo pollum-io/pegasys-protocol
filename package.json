@@ -1,5 +1,5 @@
 {
-  "name": "@pangolindex/exchange-contracts",
+  "name": "@pollum-io/pegasys-protocol",
   "devDependencies": {
     "@eth-optimism/smock": "^1.1.9",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
@@ -11,7 +11,7 @@
     "ethereum-waffle": "^3.4.0",
     "ethereumjs-tx": "^2.1.2",
     "ethereumjs-util": "^7.0.10",
-    "ethers": "^5.3.1",
+    "ethers": "^5.5.1",
     "hardhat": "^2.4.1",
     "hardhat-abi-exporter": "^2.2.1",
     "hardhat-contract-sizer": "^2.0.3",
@@ -22,29 +22,28 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "hardhat-tracer": "^1.0.0-alpha.5"
   },
-  "version": "1.0.2",
-  "description": "Contracts for the Pangolin Dex.",
+  "version": "1.0.0",
+  "description": "Contracts for the Pegasys Dex.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/pangolindex/exchange-contracts.git"
+    "url": "git@github.com:Pollum-io/pegasys-protocol.git"
   },
-  "author": "Connor Daly <connor.daly@avalabs.org>",
-  "license": "MIT",
+  "keywords": [
+    "pegasys",
+    "syscoin",
+    "NVM"
+  ],
+  "author": "Gabriel Thom <thom@pollum.io>",
+  "license": "GNU",
   "scripts": {
-    "precompile": "rimraf ./build/",
-    "compile": "npx hardhat compile",
-    "pretest": "yarn compile",
-    "test": "npx hardhat test",
-    "test-node": "npx hardhat node --network hardhat",
-    "test-local": "npx hardhat --network localhost test",
-    "lint": "prettier ./test/**/*.ts --check",
-    "prepublishOnly": "yarn test"
+    "compile": "npx hardhat compile"
   },
   "bugs": {
-    "url": "https://github.com/pangolindex/exchange-contracts/issues"
+    "url": "https://github.com/Pollum-io/pegasys-protocol/issues"
   },
-  "homepage": "https://pangolin.exchange"
+  "homepage": "https://pegasys.finance"
 }
