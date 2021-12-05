@@ -34,8 +34,11 @@
   },
   "keywords": [
     "pegasys",
+    "AMM",
+    "defi",
+    "dex",
     "syscoin",
-    "NVM"
+    "NEVM"
   ],
   "author": "Gabriel Thom <thom@pollum.io>",
   "license": "GNU",
