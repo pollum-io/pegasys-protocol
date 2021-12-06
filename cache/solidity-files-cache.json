@@ -1,0 +1,1740 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-core/PegasysPair.sol": {
+      "lastModificationDate": 1638760393279,
+      "contentHash": "6c02477f28fe48b59f9cf27b12eeb073",
+      "sourceName": "contracts/pegasys-core/PegasysPair.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IPegasysPair.sol",
+        "./PegasysERC20.sol",
+        "./libraries/Math.sol",
+        "./libraries/UQ112x112.sol",
+        "./interfaces/IERC20.sol",
+        "./interfaces/IPegasysFactory.sol",
+        "./interfaces/IPegasysCallee.sol"
+      ],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "PegasysPair"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-core/PegasysERC20.sol": {
+      "lastModificationDate": 1638760393279,
+      "contentHash": "4904a9df797e77fb5840c33da40e0bd2",
+      "sourceName": "contracts/pegasys-core/PegasysERC20.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IPegasysERC20.sol",
+        "./libraries/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "PegasysERC20"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-core/libraries/Math.sol": {
+      "lastModificationDate": 1638760393280,
+      "contentHash": "12dbcb086491ecb9a0a7119587999b66",
+      "sourceName": "contracts/pegasys-core/libraries/Math.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "Math"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-core/libraries/UQ112x112.sol": {
+      "lastModificationDate": 1638760393280,
+      "contentHash": "2a703244e9f645c6fb297a983ce7c9c4",
+      "sourceName": "contracts/pegasys-core/libraries/UQ112x112.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "UQ112x112"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-core/libraries/SafeMath.sol": {
+      "lastModificationDate": 1638760393280,
+      "contentHash": "ca9722e4db6d4e9ec74cb28e85334ad1",
+      "sourceName": "contracts/pegasys-core/libraries/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-core/test/ERC20.sol": {
+      "lastModificationDate": 1638760393281,
+      "contentHash": "2ed366c9f91d3280d8283f01cc2f2d2c",
+      "sourceName": "contracts/pegasys-core/test/ERC20.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../PegasysERC20.sol"
+      ],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-core/PegasysFactory.sol": {
+      "lastModificationDate": 1638760393279,
+      "contentHash": "0b65bca88dbd1fedc2fcd5a69576501b",
+      "sourceName": "contracts/pegasys-core/PegasysFactory.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IPegasysFactory.sol",
+        "./PegasysPair.sol"
+      ],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "PegasysFactory"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/PegasysRouter.sol": {
+      "lastModificationDate": 1638760393283,
+      "contentHash": "aa68a33d90fd595040b4d3777ede0e38",
+      "sourceName": "contracts/pegasys-periphery/PegasysRouter.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../pegasys-core/interfaces/IPegasysFactory.sol",
+        "../pegasys-lib/libraries/TransferHelper.sol",
+        "./interfaces/IPegasysRouter.sol",
+        "./libraries/PegasysLibrary.sol",
+        "./libraries/SafeMath.sol",
+        "./interfaces/IERC20.sol",
+        "./interfaces/IWSYS.sol"
+      ],
+      "versionPragmas": [
+        "=0.6.6"
+      ],
+      "artifacts": [
+        "PegasysRouter"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/test/ERC20.sol": {
+      "lastModificationDate": 1638760393285,
+      "contentHash": "c21c128e5d052e150288e134439a8522",
+      "sourceName": "contracts/pegasys-periphery/test/ERC20.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "=0.6.6"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/test/DeflatingERC20.sol": {
+      "lastModificationDate": 1638760393285,
+      "contentHash": "db124e8aa2624f41aba9e3d95bb4cfef",
+      "sourceName": "contracts/pegasys-periphery/test/DeflatingERC20.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "=0.6.6"
+      ],
+      "artifacts": [
+        "DeflatingERC20"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/test/RouterEventEmitter.sol": {
+      "lastModificationDate": 1638760393285,
+      "contentHash": "33f54de608fb252cbdd2ac3a359d082a",
+      "sourceName": "contracts/pegasys-periphery/test/RouterEventEmitter.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IPegasysRouter.sol"
+      ],
+      "versionPragmas": [
+        "=0.6.6"
+      ],
+      "artifacts": [
+        "RouterEventEmitter"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/libraries/SafeMath.sol": {
+      "lastModificationDate": 1638760393284,
+      "contentHash": "8535304c55b925f43d8079c3f2a2aecf",
+      "sourceName": "contracts/pegasys-periphery/libraries/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.6 <0.8.0"
+      ],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/libraries/PegasysLibrary.sol": {
+      "lastModificationDate": 1638760393284,
+      "contentHash": "1ce14677d6f3221b375862e9bab27f85",
+      "sourceName": "contracts/pegasys-periphery/libraries/PegasysLibrary.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../pegasys-core/interfaces/IPegasysFactory.sol",
+        "../../pegasys-core/interfaces/IPegasysPair.sol",
+        "./SafeMath.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "PegasysLibrary"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/PegasysBridgeMigrationRouter.sol": {
+      "lastModificationDate": 1638760393283,
+      "contentHash": "7b8541c42bc43d2ff013dc942cb3a5bf",
+      "sourceName": "contracts/pegasys-periphery/PegasysBridgeMigrationRouter.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../pegasys-core/interfaces/IPegasysERC20.sol",
+        "../pegasys-lib/libraries/TransferHelper.sol",
+        "./interfaces/IBridgeToken.sol",
+        "./libraries/Roles.sol",
+        "./libraries/PegasysLibrary.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.6"
+      ],
+      "artifacts": [
+        "PegasysBridgeMigrationRouter"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/libraries/Roles.sol": {
+      "lastModificationDate": 1638760393284,
+      "contentHash": "ae65ddc2e2d28114fe0e64bfcdd550e2",
+      "sourceName": "contracts/pegasys-periphery/libraries/Roles.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.0"
+      ],
+      "artifacts": [
+        "Roles"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/test/BridgeToken.sol": {
+      "lastModificationDate": 1638760393285,
+      "contentHash": "4ec6f4b90e8b1747005ad6b6c2e81a1a",
+      "sourceName": "contracts/pegasys-periphery/test/BridgeToken.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./library/openzeppelin/ERC20Burnable.sol",
+        "../libraries/Roles.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.0"
+      ],
+      "artifacts": [
+        "BridgeToken"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/test/library/openzeppelin/ERC20Burnable.sol": {
+      "lastModificationDate": 1638760393285,
+      "contentHash": "6989b27631d3e006e7f06a2e47417f25",
+      "sourceName": "contracts/pegasys-periphery/test/library/openzeppelin/ERC20Burnable.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Context.sol",
+        "./ERC20.sol",
+        "./OpenZeppelinSafeMath.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "ERC20Burnable"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/test/library/openzeppelin/Context.sol": {
+      "lastModificationDate": 1638760393285,
+      "contentHash": "2adbd82f6d055a4751566d4671512b03",
+      "sourceName": "contracts/pegasys-periphery/test/library/openzeppelin/Context.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/test/library/openzeppelin/ERC20.sol": {
+      "lastModificationDate": 1638760393285,
+      "contentHash": "9aebb046d7e5e9f53727ac5225d39288",
+      "sourceName": "contracts/pegasys-periphery/test/library/openzeppelin/ERC20.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Context.sol",
+        "./IERC20.sol",
+        "./OpenZeppelinSafeMath.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/test/library/openzeppelin/OpenZeppelinSafeMath.sol": {
+      "lastModificationDate": 1638760393286,
+      "contentHash": "8fb9c8bbacc460ed59e2003802eef04d",
+      "sourceName": "contracts/pegasys-periphery/test/library/openzeppelin/OpenZeppelinSafeMath.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "OpenZeppelinSafeMath"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/test/library/openzeppelin/IERC20.sol": {
+      "lastModificationDate": 1638760393286,
+      "contentHash": "e0a41531d159d3a32f84b7a3ecf9fabb",
+      "sourceName": "contracts/pegasys-periphery/test/library/openzeppelin/IERC20.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/test/TransferHelperTest.sol": {
+      "lastModificationDate": 1638760393283,
+      "contentHash": "03bc6667635711970d22035e4e57156f",
+      "sourceName": "contracts/pegasys-lib/test/TransferHelperTest.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/TransferHelper.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "TransferHelperTest",
+        "TransferHelperTestFakeERC20Compliant",
+        "TransferHelperTestFakeERC20Noncompliant",
+        "TransferHelperTestFakeFallback"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/libraries/UniswapV2OracleLibrary.sol": {
+      "lastModificationDate": 1638760393284,
+      "contentHash": "0fe3ef47e36ad40a0c78614bdf35a86e",
+      "sourceName": "contracts/pegasys-periphery/libraries/UniswapV2OracleLibrary.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../pegasys-core/interfaces/IPegasysPair.sol",
+        "../../pegasys-lib/libraries/FixedPoint.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "PegasysOracleLibrary"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/libraries/FixedPoint.sol": {
+      "lastModificationDate": 1638760393281,
+      "contentHash": "a2c4e2eba44e846b65ea2536eb0da377",
+      "sourceName": "contracts/pegasys-lib/libraries/FixedPoint.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./FullMath.sol",
+        "./Babylonian.sol"
+      ],
+      "versionPragmas": [
+        ">=0.4.0 <0.8.0"
+      ],
+      "artifacts": [
+        "FixedPoint"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/libraries/FullMath.sol": {
+      "lastModificationDate": 1638760393281,
+      "contentHash": "117802dc891d76d378d8140ae41b753d",
+      "sourceName": "contracts/pegasys-lib/libraries/FullMath.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.0 <0.8.0"
+      ],
+      "artifacts": [
+        "FullMath"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/test/FixedPointTest.sol": {
+      "lastModificationDate": 1638760393282,
+      "contentHash": "64faa1db3104954223f123dbdc528306",
+      "sourceName": "contracts/pegasys-lib/test/FixedPointTest.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/FixedPoint.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "FixedPointTest"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/test/FullMathTest.sol": {
+      "lastModificationDate": 1638760393282,
+      "contentHash": "4c63a4bb76e02a6869d1aa3ea462a47c",
+      "sourceName": "contracts/pegasys-lib/test/FullMathTest.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/FullMath.sol"
+      ],
+      "versionPragmas": [
+        ">=0.4.0"
+      ],
+      "artifacts": [
+        "FullMathTest"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/libraries/AddressStringUtil.sol": {
+      "lastModificationDate": 1638760393281,
+      "contentHash": "1222a0cb42aec92dc05ff3e7ea11c7bd",
+      "sourceName": "contracts/pegasys-lib/libraries/AddressStringUtil.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0 <0.8.0"
+      ],
+      "artifacts": [
+        "AddressStringUtil"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/test/AddressStringUtilTest.sol": {
+      "lastModificationDate": 1638760393282,
+      "contentHash": "5d6ed3622f3a2ebd91576d8fa7533d45",
+      "sourceName": "contracts/pegasys-lib/test/AddressStringUtilTest.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/AddressStringUtil.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "AddressStringUtilTest"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/libraries/SafeERC20Namer.sol": {
+      "lastModificationDate": 1638760393281,
+      "contentHash": "021f5d25fe9e925dbedc303adc072a61",
+      "sourceName": "contracts/pegasys-lib/libraries/SafeERC20Namer.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./AddressStringUtil.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "SafeERC20Namer"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/test/SafeERC20NamerTest.sol": {
+      "lastModificationDate": 1638760393283,
+      "contentHash": "7b42c9e7ea9e7ddcb6bd184fe5bec20e",
+      "sourceName": "contracts/pegasys-lib/test/SafeERC20NamerTest.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/SafeERC20Namer.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "NamerTestFakeCompliantERC20",
+        "NamerTestFakeNoncompliantERC20",
+        "NamerTestFakeOptionalERC20",
+        "SafeERC20NamerTest"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/libraries/PairNamer.sol": {
+      "lastModificationDate": 1638760393281,
+      "contentHash": "1426cb7dab6b726745f73e0b4667482d",
+      "sourceName": "contracts/pegasys-lib/libraries/PairNamer.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./SafeERC20Namer.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "PairNamer"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/test/PairNamerTest.sol": {
+      "lastModificationDate": 1638760393282,
+      "contentHash": "ca71a15cef6c008a68b46d67fffeaad7",
+      "sourceName": "contracts/pegasys-lib/test/PairNamerTest.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/PairNamer.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "PairNamerTest",
+        "PairNamerTestFakeToken"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-core/interfaces/IERC20.sol": {
+      "lastModificationDate": 1638760393279,
+      "contentHash": "1ff9e1a0ef6d8480258df1ac49c93e2e",
+      "sourceName": "contracts/pegasys-core/interfaces/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-core/interfaces/IPegasysCallee.sol": {
+      "lastModificationDate": 1638760393280,
+      "contentHash": "2ed1d0d6863128a9c7b2874c246fd9ec",
+      "sourceName": "contracts/pegasys-core/interfaces/IPegasysCallee.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IPegasysCallee"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-core/interfaces/IPegasysFactory.sol": {
+      "lastModificationDate": 1638760393280,
+      "contentHash": "f5d79a0d1586421354f3ae9c538e168a",
+      "sourceName": "contracts/pegasys-core/interfaces/IPegasysFactory.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IPegasysFactory"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/interfaces/IWSYS.sol": {
+      "lastModificationDate": 1638760393284,
+      "contentHash": "2faee274f92b54b77236a8e3c80c1ba2",
+      "sourceName": "contracts/pegasys-periphery/interfaces/IWSYS.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IWSYS"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/interfaces/IERC20.sol": {
+      "lastModificationDate": 1638760393283,
+      "contentHash": "1ff9e1a0ef6d8480258df1ac49c93e2e",
+      "sourceName": "contracts/pegasys-periphery/interfaces/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/interfaces/IBridgeToken.sol": {
+      "lastModificationDate": 1638760393283,
+      "contentHash": "377509b648ef22f423472585fc68be7e",
+      "sourceName": "contracts/pegasys-periphery/interfaces/IBridgeToken.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../pegasys-core/interfaces/IPegasysERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IBridgeToken"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-core/interfaces/IPegasysERC20.sol": {
+      "lastModificationDate": 1638760393280,
+      "contentHash": "881ca53a500c8194d991b0c02336709c",
+      "sourceName": "contracts/pegasys-core/interfaces/IPegasysERC20.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IPegasysERC20"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/libraries/TransferHelper.sol": {
+      "lastModificationDate": 1638760393282,
+      "contentHash": "f4ba332e0484147b4cfbcced2b42b23a",
+      "sourceName": "contracts/pegasys-lib/libraries/TransferHelper.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0"
+      ],
+      "artifacts": [
+        "TransferHelper"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-core/interfaces/IPegasysPair.sol": {
+      "lastModificationDate": 1638760393280,
+      "contentHash": "6fb5c791e4b4d1a35403c8928765f55e",
+      "sourceName": "contracts/pegasys-core/interfaces/IPegasysPair.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IPegasysPair"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/libraries/Babylonian.sol": {
+      "lastModificationDate": 1638760393281,
+      "contentHash": "6cc4613388b672fbb792b9f6e2e28399",
+      "sourceName": "contracts/pegasys-lib/libraries/Babylonian.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.0"
+      ],
+      "artifacts": [
+        "Babylonian"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/test/BabylonianTest.sol": {
+      "lastModificationDate": 1638760393282,
+      "contentHash": "1dbec3a464b28ea5d9c897edb512ee83",
+      "sourceName": "contracts/pegasys-lib/test/BabylonianTest.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/Babylonian.sol"
+      ],
+      "versionPragmas": [
+        ">=0.4.0"
+      ],
+      "artifacts": [
+        "BabylonianTest"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-lib/test/BabylonianEchidnaTest.sol": {
+      "lastModificationDate": 1638760393282,
+      "contentHash": "654ded4eab969a2fb6d696cd7a95d9b4",
+      "sourceName": "contracts/pegasys-lib/test/BabylonianEchidnaTest.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/Babylonian.sol"
+      ],
+      "versionPragmas": [
+        ">=0.4.0"
+      ],
+      "artifacts": [
+        "BabylonianEchidnaTest"
+      ]
+    },
+    "/Users/moloch/Documents/Pollum/pegasys-protocol/contracts/pegasys-periphery/interfaces/IPegasysRouter.sol": {
+      "lastModificationDate": 1638760393284,
+      "contentHash": "0dd9ba629e934227b45441c8400fe773",
+      "sourceName": "contracts/pegasys-periphery/interfaces/IPegasysRouter.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.2"
+      ],
+      "artifacts": [
+        "IPegasysRouter"
+      ]
+    }
+  }
+}
