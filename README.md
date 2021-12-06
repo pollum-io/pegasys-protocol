@@ -1,5 +1,5 @@
 # Pegasys Smart Contracts
-This repo contains all of the smart contracts used to run [Pegasys](pegasys.finance).
+This repo contains all of the smart contracts used to run [Pegasys](pegasys.finance). It is also distributed through [NPM](https://www.npmjs.com/package/@pollum-io/pegasys-protocol).
 
 ## Deployed Contracts
 
