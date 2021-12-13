@@ -537,6 +537,14 @@
     "@types/sinon-chai" "^3.2.3"
     "@types/web3" "1.0.19"
 
+"@pollum-io/pegasys-protocol@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@pollum-io/pegasys-protocol/-/pegasys-protocol-0.0.2.tgz#f731dcefec93d2569daa80da48803bc8185a42cf"
+  integrity sha512-E9NfjnazQ5+UUCm6TvlrAobg5Mvh1nr4eiJOiVkO0w9CvPW6MIubUfWI+F2UAYbvPEBwWLPx6gtZWA0M51d1vA==
+  dependencies:
+    dotenv "^10.0.0"
+    hardhat-tracer "^1.0.0-alpha.5"
+
 "@resolver-engine/core@^0.3.3":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@resolver-engine/core/-/core-0.3.3.tgz#590f77d85d45bc7ecc4e06c654f41345db6ca967"
@@ -3338,7 +3346,7 @@ ethers@^4.0.40:
     uuid "2.0.1"
     xmlhttprequest "1.8.0"
 
-ethers@^5.0.1, ethers@^5.0.2, ethers@^5.0.24, ethers@^5.4.5, ethers@^5.4.7, ethers@^5.5.1:
+ethers@^5.0.1, ethers@^5.0.2, ethers@^5.0.24, ethers@^5.4.5, ethers@^5.4.7, ethers@^5.5.2:
   version "5.5.2"
   resolved "https://registry.yarnpkg.com/ethers/-/ethers-5.5.2.tgz#cd2e508c7342c44fa70392f722e8de8f2416489f"
   integrity sha512-EF5W+6Wwcu6BqVwpgmyR5U2+L4c1FQzlM/02dkZOugN3KF0cG9bzHZP+TDJglmPm2/IzCEJDT7KBxzayk7SAHw==

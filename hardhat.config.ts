@@ -79,11 +79,30 @@ const config: HardhatUserConfig = {
     ]
   },
   networks: {
+
     tanenbaum: {
       url: 'https://rpc.tanenbaum.io',
       gasPrice: 470000000000,
       chainId: 5700,
       accounts: [DEPLOY_PRIV_KEY]
+    },
+    localhost: {
+      gasPrice: 470000000000,
+      chainId: 43114,
+      url: "http://127.0.0.1:8545/ext/bc/C/rpc"
+    },
+    hardhat: {
+      gasPrice: 470000000000,
+      chainId: 43114,
+      initialDate: "2020-10-10",
+      forking: {
+        url: 'https://api.avax.network/ext/bc/C/rpc', 
+        enabled: true
+      },
+      accounts: {
+        accountsBalance: "1000000000000000000000000000000", 
+        count: 50
+      }
     },
   },
   contractSizer: {
@@ -99,3 +118,4 @@ const config: HardhatUserConfig = {
 };
 
 export default config;
+
