@@ -15,7 +15,7 @@ Factory address: `0x4DFc340487bbec780bA8458e614b732d7226AE8f`
 
 Router address: `soon`
 
-Migrator address: `soon`
+Migrator address: `0x13517674e6f8794973f70B37CcF06676023E69Cc`
 
 ## Running
 These contracts are compiled and deployed using [Hardhat](https://hardhat.org/).
