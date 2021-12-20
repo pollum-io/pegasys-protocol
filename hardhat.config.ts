@@ -96,11 +96,11 @@ const config: HardhatUserConfig = {
       chainId: 43114,
       initialDate: "2020-10-10",
       forking: {
-        url: 'https://api.avax.network/ext/bc/C/rpc', 
+        url: 'https://api.avax.network/ext/bc/C/rpc',
         enabled: true
       },
       accounts: {
-        accountsBalance: "1000000000000000000000000000000", 
+        accountsBalance: "1000000000000000000000000000000",
         count: 50
       }
     },
