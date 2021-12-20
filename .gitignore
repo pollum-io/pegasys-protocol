@@ -1,6 +1,5 @@
 contracts/TestERC20.sol
 contracts/WSYS.sol
-contracts/flatten
 scripts/
 cache/
 node_modules/

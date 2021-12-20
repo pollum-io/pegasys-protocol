@@ -83,6 +83,12 @@ const config: HardhatUserConfig = {
       chainId: 5700,
       accounts: [process.env.DEPLOY_ACCOUNT_PRIVATE_KEY]
     },
+    sys: {
+      url: 'https://rpc.syscoin.org',
+      gasPrice: 4000000000,
+      accounts: [process.env.DEPLOY_ACCOUNT_PRIVATE_KEY]
+    },
+
   },
   contractSizer: {
     alphaSort: false,

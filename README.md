@@ -11,7 +11,7 @@ Router address: `0x11C7a9EC6D27BbDf6abCef518e259d4E4d429DD6`
 Migrator address: `0xE62751f52b55fcFae16144f5784c44418fb535D7`
 
 ### Syscoin NEVM:
-Factory address: `soon`
+Factory address: `0x4DFc340487bbec780bA8458e614b732d7226AE8f`
 
 Router address: `soon`
 
