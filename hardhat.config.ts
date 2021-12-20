@@ -17,6 +17,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
+const DEPLOY_PRIV_KEY = process.env.DEPLOY_ACCOUNT_PRIVATE_KEY || "8da4ef21b864d2cc526dbdb2a120bd2874c36c9d0a1fb7f8c63d7f7a8b41de8f";
+
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
@@ -77,11 +79,30 @@ const config: HardhatUserConfig = {
     ]
   },
   networks: {
+
     tanenbaum: {
       url: 'https://rpc.tanenbaum.io',
       gasPrice: 470000000000,
       chainId: 5700,
-      accounts: [process.env.DEPLOY_ACCOUNT_PRIVATE_KEY]
+      accounts: [DEPLOY_PRIV_KEY]
+    },
+    localhost: {
+      gasPrice: 470000000000,
+      chainId: 43114,
+      url: "http://127.0.0.1:8545/ext/bc/C/rpc"
+    },
+    hardhat: {
+      gasPrice: 470000000000,
+      chainId: 43114,
+      initialDate: "2020-10-10",
+      forking: {
+        url: 'https://api.avax.network/ext/bc/C/rpc', 
+        enabled: true
+      },
+      accounts: {
+        accountsBalance: "1000000000000000000000000000000", 
+        count: 50
+      }
     },
     sys: {
       url: 'https://rpc.syscoin.org',
@@ -103,3 +124,4 @@ const config: HardhatUserConfig = {
 };
 
 export default config;
+
