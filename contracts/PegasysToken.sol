@@ -1,15 +1,3 @@
-/**
- *Submitted for verification at polygonscan.com on 2021-05-18
- */
-
-/**
- *Submitted for verification at Etherscan.io on 2020-09-16
- */
-
-/**
- *Submitted for verification at Etherscan.io on 2020-09-15
- */
-
 pragma solidity ^0.5.16;
 pragma experimental ABIEncoderV2;
 
@@ -218,18 +206,30 @@ library SafeMath {
     }
 }
 
-contract Pegasys {
+contract PegasysToken {
     /// @notice EIP-20 token name for this token
     string public constant name = "Pegasys";
 
     /// @notice EIP-20 token symbol for this token
-    string public constant symbol = "PSYS";
+    string public constant symbol = "Psys";
 
     /// @notice EIP-20 token decimals for this token
     uint8 public constant decimals = 18;
 
     /// @notice Total number of tokens in circulation
-    uint256 public totalSupply = 0; // QUICK
+    uint256 public totalSupply = 100000000000000000000000000; // 100 million PSYS
+
+    /// @notice Cap on the percentage of totalSupply that can be minted at each mint
+    uint8 public constant mintCap = 2;
+
+    /// @notice Address which may mint new tokens
+    address public minter;
+
+    /// @notice The timestamp after which minting may occur
+    uint256 public mintingAllowedAfter;
+
+    /// @notice Minimum time between mints
+    uint32 public constant minimumTimeBetweenMints = 1 days * 365;
 
     /// @notice Allowance amounts on behalf of others
     mapping(address => mapping(address => uint96)) internal allowances;
@@ -271,8 +271,6 @@ contract Pegasys {
     /// @notice A record of states for signing / validating signatures
     mapping(address => uint256) public nonces;
 
-    address public gateway;
-
     /// @notice An event thats emitted when an account changes its delegate
     event DelegateChanged(
         address indexed delegator,
@@ -290,6 +288,9 @@ contract Pegasys {
     /// @notice The standard EIP-20 transfer event
     event Transfer(address indexed from, address indexed to, uint256 amount);
 
+    /// @notice An event thats emitted when the minter address is changed
+    event MinterChanged(address minter, address newMinter);
+
     /// @notice The standard EIP-20 approval event
     event Approval(
         address indexed owner,
@@ -298,43 +299,79 @@ contract Pegasys {
     );
 
     /**
-     * @notice Construct a new Quick token
-     * @param gateway_ The gateway contract address
+     * @notice Construct a new Pegasys token
+     * @param account The initial account to grant all the tokens
      */
-    constructor(address gateway_) public {
-        gateway = gateway_;
+    constructor(address account, address minter_) public {
+        balances[account] = uint96(totalSupply);
+        emit Transfer(address(0), account, totalSupply);
+        minter = minter_;
+        emit MinterChanged(address(0), minter);
+        mintingAllowedAfter = SafeMath.add(
+            block.timestamp,
+            minimumTimeBetweenMints
+        );
     }
 
     /**
-     * @notice called when token is deposited on root chain
-     * @dev Should be callable only by ChildChainManager
-     * Should handle deposit by minting the required amount for user
-     * Make sure minting is done only by this function
-     * @param user user address for whom deposit is being done
-     * @param depositData abi encoded amount
+     * @notice Change the minter address
+     * @param minter_ The address of the new minter
      */
-    function deposit(address user, bytes calldata depositData) external {
-        require(msg.sender == gateway, "Invalid access");
-        uint256 rawAmount = abi.decode(depositData, (uint256));
-        uint96 amount = safe96(
-            rawAmount,
-            "Quick::deposit: amount exceeds 96 bits"
+    function setMinter(address minter_) external {
+        require(
+            msg.sender == minter,
+            "Pegasys::setMinter: only the minter can change the minter address"
         );
-
-        _mint(user, amount);
+        emit MinterChanged(minter, minter_);
+        minter = minter_;
     }
 
     /**
-     * @notice called when user wants to withdraw tokens back to root chain
-     * @dev Should burn user's tokens. This transaction will be verified when exiting on root chain
-     * @param rawAmount amount of tokens to withdraw
+     * @notice Mint new tokens
+     * @param dst The address of the destination account
+     * @param rawAmount The number of tokens to be minted
      */
-    function withdraw(uint256 rawAmount) external {
+    function mint(address dst, uint256 rawAmount) external {
+        require(
+            msg.sender == minter,
+            "Pegasys::mint: only the minter can mint"
+        );
+        require(
+            block.timestamp >= mintingAllowedAfter,
+            "Pegasys::mint: minting not allowed yet"
+        );
+        require(
+            dst != address(0),
+            "Pegasys::mint: cannot transfer to the zero address"
+        );
+
+        // record the mint
+        mintingAllowedAfter = SafeMath.add(
+            block.timestamp,
+            minimumTimeBetweenMints
+        );
+
+        // mint the amount
         uint96 amount = safe96(
             rawAmount,
-            "Quick::withdraw: amount exceeds 96 bits"
+            "Pegasys::mint: amount exceeds 96 bits"
         );
-        _burn(msg.sender, amount);
+        require(
+            amount <= SafeMath.div(SafeMath.mul(totalSupply, mintCap), 100),
+            "Pegasys::mint: exceeded mint cap"
+        );
+        totalSupply = safe96(
+            SafeMath.add(totalSupply, amount),
+            "Pegasys::mint: totalSupply exceeds 96 bits"
+        );
+
+        // transfer the amount to the recipient
+        balances[dst] = add96(
+            balances[dst],
+            amount,
+            "Pegasys::mint: transfer amount overflows"
+        );
+        emit Transfer(address(0), dst, amount);
     }
 
     /**
@@ -369,7 +406,7 @@ contract Pegasys {
         } else {
             amount = safe96(
                 rawAmount,
-                "Quick::approve: amount exceeds 96 bits"
+                "Pegasys::approve: amount exceeds 96 bits"
             );
         }
 
@@ -402,7 +439,10 @@ contract Pegasys {
         if (rawAmount == uint256(-1)) {
             amount = uint96(-1);
         } else {
-            amount = safe96(rawAmount, "Quick::permit: amount exceeds 96 bits");
+            amount = safe96(
+                rawAmount,
+                "Pegasys::permit: amount exceeds 96 bits"
+            );
         }
 
         bytes32 domainSeparator = keccak256(
@@ -427,9 +467,9 @@ contract Pegasys {
             abi.encodePacked("\x19\x01", domainSeparator, structHash)
         );
         address signatory = ecrecover(digest, v, r, s);
-        require(signatory != address(0), "Quick::permit: invalid signature");
-        require(signatory == owner, "Quick::permit: unauthorized");
-        require(now <= deadline, "Quick::permit: signature expired");
+        require(signatory != address(0), "Pegasys::permit: invalid signature");
+        require(signatory == owner, "Pegasys::permit: unauthorized");
+        require(now <= deadline, "Pegasys::permit: signature expired");
 
         allowances[owner][spender] = amount;
 
@@ -454,7 +494,7 @@ contract Pegasys {
     function transfer(address dst, uint256 rawAmount) external returns (bool) {
         uint96 amount = safe96(
             rawAmount,
-            "Quick::transfer: amount exceeds 96 bits"
+            "Pegasys::transfer: amount exceeds 96 bits"
         );
         _transferTokens(msg.sender, dst, amount);
         return true;
@@ -476,14 +516,14 @@ contract Pegasys {
         uint96 spenderAllowance = allowances[src][spender];
         uint96 amount = safe96(
             rawAmount,
-            "Quick::approve: amount exceeds 96 bits"
+            "Pegasys::approve: amount exceeds 96 bits"
         );
 
         if (spender != src && spenderAllowance != uint96(-1)) {
             uint96 newAllowance = sub96(
                 spenderAllowance,
                 amount,
-                "Quick::transferFrom: transfer amount exceeds spender allowance"
+                "Pegasys::transferFrom: transfer amount exceeds spender allowance"
             );
             allowances[src][spender] = newAllowance;
 
@@ -536,13 +576,13 @@ contract Pegasys {
         address signatory = ecrecover(digest, v, r, s);
         require(
             signatory != address(0),
-            "Quick::delegateBySig: invalid signature"
+            "Pegasys::delegateBySig: invalid signature"
         );
         require(
             nonce == nonces[signatory]++,
-            "Quick::delegateBySig: invalid nonce"
+            "Pegasys::delegateBySig: invalid nonce"
         );
-        require(now <= expiry, "Quick::delegateBySig: signature expired");
+        require(now <= expiry, "Pegasys::delegateBySig: signature expired");
         return _delegate(signatory, delegatee);
     }
 
@@ -571,7 +611,7 @@ contract Pegasys {
     {
         require(
             blockNumber < block.number,
-            "Quick::getPriorVotes: not yet determined"
+            "Pegasys::getPriorVotes: not yet determined"
         );
 
         uint32 nCheckpoints = numCheckpoints[account];
@@ -622,22 +662,22 @@ contract Pegasys {
     ) internal {
         require(
             src != address(0),
-            "Quick::_transferTokens: cannot transfer from the zero address"
+            "Pegasys::_transferTokens: cannot transfer from the zero address"
         );
         require(
             dst != address(0),
-            "Quick::_transferTokens: cannot transfer to the zero address"
+            "Pegasys::_transferTokens: cannot transfer to the zero address"
         );
 
         balances[src] = sub96(
             balances[src],
             amount,
-            "Quick::_transferTokens: transfer amount exceeds balance"
+            "Pegasys::_transferTokens: transfer amount exceeds balance"
         );
         balances[dst] = add96(
             balances[dst],
             amount,
-            "Quick::_transferTokens: transfer amount overflows"
+            "Pegasys::_transferTokens: transfer amount overflows"
         );
         emit Transfer(src, dst, amount);
 
@@ -658,7 +698,7 @@ contract Pegasys {
                 uint96 srcRepNew = sub96(
                     srcRepOld,
                     amount,
-                    "Quick::_moveVotes: vote amount underflows"
+                    "Pegasys::_moveVotes: vote amount underflows"
                 );
                 _writeCheckpoint(srcRep, srcRepNum, srcRepOld, srcRepNew);
             }
@@ -671,7 +711,7 @@ contract Pegasys {
                 uint96 dstRepNew = add96(
                     dstRepOld,
                     amount,
-                    "Quick::_moveVotes: vote amount overflows"
+                    "Pegasys::_moveVotes: vote amount overflows"
                 );
                 _writeCheckpoint(dstRep, dstRepNum, dstRepOld, dstRepNew);
             }
@@ -686,7 +726,7 @@ contract Pegasys {
     ) internal {
         uint32 blockNumber = safe32(
             block.number,
-            "Quick::_writeCheckpoint: block number exceeds 32 bits"
+            "Pegasys::_writeCheckpoint: block number exceeds 32 bits"
         );
 
         if (
@@ -748,46 +788,5 @@ contract Pegasys {
             chainId := chainid()
         }
         return chainId;
-    }
-
-    function _mint(address dst, uint256 rawAmount) internal {
-        require(
-            dst != address(0),
-            "Quick::mint: cannot transfer to the zero address"
-        );
-
-        // mint the amount
-        uint96 amount = safe96(
-            rawAmount,
-            "Quick::mint: amount exceeds 96 bits"
-        );
-        totalSupply = safe96(
-            SafeMath.add(totalSupply, amount),
-            "Quick::mint: totalSupply exceeds 96 bits"
-        );
-
-        // transfer the amount to the recipient
-        balances[dst] = add96(
-            balances[dst],
-            amount,
-            "Quick::mint: transfer amount overflows"
-        );
-        emit Transfer(address(0), dst, amount);
-    }
-
-    function _burn(address account, uint96 amount) internal {
-        require(account != address(0), "Quick:: burn from the zero address");
-
-        balances[account] = sub96(
-            balances[account],
-            amount,
-            "Quick:: burn amount exceeds balance"
-        );
-        totalSupply = sub96(
-            safe96(totalSupply, "Quick:: totalSupply exceeds 96 bits"),
-            amount,
-            "Quick:: burn amount exceeds total supply"
-        );
-        emit Transfer(account, address(0), amount);
     }
 }

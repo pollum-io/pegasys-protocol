@@ -107,7 +107,7 @@ const config: HardhatUserConfig = {
     sys: {
       url: 'https://rpc.syscoin.org',
       gasPrice: 4000000000,
-      accounts: [process.env.DEPLOY_ACCOUNT_PRIVATE_KEY]
+      accounts: [DEPLOY_PRIV_KEY]
     },
 
   },
