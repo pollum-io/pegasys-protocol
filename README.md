@@ -13,11 +13,11 @@ Router address: `0x7ADB6DFDfa745F9aC26155710c6C5eff574525d9`
 Migrator address: `0x13517674e6f8794973f70B37CcF06676023E69Cc`
 
 ### Syscoin Tanenbaum Testnet:
-Factory address: `0x8e59ED2DF847Ad3d19624480Db5B2B3Ba27fC9a8`
+Factory address: `0xb5Bd357d958A89F5E4904c8C50d42fE7D79A7Add`
 
-Router address: `0x11C7a9EC6D27BbDf6abCef518e259d4E4d429DD6`
+Router address: `0xeE194665FCd142001c5E7beC56ECb613D93f5DdD`
 
-Migrator address: `0xE62751f52b55fcFae16144f5784c44418fb535D7`
+Migrator address: `0xcDa164cb93979d714CC8B0D3e1ab829E81469649`
 ## Running
 These contracts are compiled and deployed using [Hardhat](https://hardhat.org/).
 

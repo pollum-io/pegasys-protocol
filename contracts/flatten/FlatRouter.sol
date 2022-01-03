@@ -474,7 +474,7 @@ library PegasysLibrary {
                         hex"ff",
                         factory,
                         keccak256(abi.encodePacked(token0, token1)),
-                        hex"40231f6b438bce0797c9ada29b718a87ea0a5cea3fe9a771abdd76bd41a3e545" // init code hash
+                        hex"9b18ae8e1236e3f9180c7039c71f19ec0d0963fd9a2a74a29fcdcfc467361b9d" // init code hash
                     )
                 )
             )
