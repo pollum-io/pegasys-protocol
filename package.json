@@ -1,6 +1,6 @@
 {
   "name": "@pollum-io/pegasys-protocol",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Contracts for the Pegasys Dex.",
   "main": "index.js",
   "keywords": [
@@ -34,7 +34,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "@pollum-io/pegasys-protocol": "^0.0.2",
+    "@pollum-io/pegasys-protocol": "latest",
     "dotenv": "^10.0.0",
     "hardhat-tracer": "^1.0.0-alpha.5"
   },

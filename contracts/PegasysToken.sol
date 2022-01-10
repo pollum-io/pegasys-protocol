@@ -211,16 +211,13 @@ contract PegasysToken {
     string public constant name = "Pegasys";
 
     /// @notice EIP-20 token symbol for this token
-    string public constant symbol = "Psys";
+    string public constant symbol = "PSYS";
 
     /// @notice EIP-20 token decimals for this token
     uint8 public constant decimals = 18;
 
     /// @notice Total number of tokens in circulation
-    uint256 public totalSupply = 100000000000000000000000000; // 100 million PSYS
-
-    /// @notice Cap on the percentage of totalSupply that can be minted at each mint
-    uint8 public constant mintCap = 2;
+    uint256 public totalSupply = 100_000_000e18; // 100 million PSYS
 
     /// @notice Address which may mint new tokens
     address public minter;
@@ -229,7 +226,10 @@ contract PegasysToken {
     uint256 public mintingAllowedAfter;
 
     /// @notice Minimum time between mints
-    uint32 public constant minimumTimeBetweenMints = 1 days * 365;
+    uint32 public constant minimumTimeBetweenMints = 356 days;
+
+    /// @notice Cap on the percentage of totalSupply that can be minted at each mint
+    uint8 public mintCap = 48;
 
     /// @notice Allowance amounts on behalf of others
     mapping(address => mapping(address => uint96)) internal allowances;
@@ -271,6 +271,9 @@ contract PegasysToken {
     /// @notice A record of states for signing / validating signatures
     mapping(address => uint256) public nonces;
 
+    /// @notice An event thats emitted when the minter address is changed
+    event MinterChanged(address minter, address newMinter);
+
     /// @notice An event thats emitted when an account changes its delegate
     event DelegateChanged(
         address indexed delegator,
@@ -288,9 +291,6 @@ contract PegasysToken {
     /// @notice The standard EIP-20 transfer event
     event Transfer(address indexed from, address indexed to, uint256 amount);
 
-    /// @notice An event thats emitted when the minter address is changed
-    event MinterChanged(address minter, address newMinter);
-
     /// @notice The standard EIP-20 approval event
     event Approval(
         address indexed owner,
@@ -301,6 +301,7 @@ contract PegasysToken {
     /**
      * @notice Construct a new Pegasys token
      * @param account The initial account to grant all the tokens
+     * @param minter_ The account with minting ability
      */
     constructor(address account, address minter_) public {
         balances[account] = uint96(totalSupply);
@@ -371,7 +372,16 @@ contract PegasysToken {
             amount,
             "Pegasys::mint: transfer amount overflows"
         );
+
         emit Transfer(address(0), dst, amount);
+
+        // if mintCap is greater than 3 divide it in half
+        if (mintCap > 3) {
+            mintCap /= 2;
+        }
+
+        // move delegates
+        _moveDelegates(address(0), delegates[dst], amount);
     }
 
     /**
