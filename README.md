@@ -7,17 +7,15 @@ This repo contains all of the smart contracts used to run [Pegasys](pegasys.fina
 
 ### Syscoin NEVM:
 
-Pegasys Token: `soon`
+Pegasys Token: `0x32f8199e428117F5A037A56562bbBFca7d5328c9`
 
-Factory address: `0x4DFc340487bbec780bA8458e614b732d7226AE8f`
+Factory address: `0x25DAE2f7ad027b29b4e968ecC899F8A8A0f54B2A`
 
-Router address: `0x7ADB6DFDfa745F9aC26155710c6C5eff574525d9`
+Router address: `0x55b73f03A4Bc5CE494e94e81d5f88E9180fb50b4`
 
-Migrator address: `0x13517674e6f8794973f70B37CcF06676023E69Cc`
+Migrator address: `0x1E5E6669dbCf7E72C3Cd11444edac356E11E781E`
 
 ### Syscoin Tanenbaum Testnet:
-
-Pegasys Token: `soon`
 
 Factory address: `0xb5Bd357d958A89F5E4904c8C50d42fE7D79A7Add`
 
