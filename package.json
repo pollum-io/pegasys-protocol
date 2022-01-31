@@ -1,6 +1,6 @@
 {
   "name": "@pollum-io/pegasys-protocol",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Contracts for the Pegasys Dex.",
   "main": "index.js",
   "keywords": [
@@ -12,18 +12,20 @@
     "NEVM"
   ],
   "devDependencies": {
+    "@boringcrypto/boring-solidity": "boringcrypto/BoringSolidity#e06e943",
     "@eth-optimism/smock": "^1.1.9",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@types/chai": "^4.2.21",
     "@types/mocha": "^8.2.3",
     "@types/node": "^16.3.1",
+    "openzeppelin-contracts-legacy": "yarn:@openzeppelin/contracts@3.3.0",
     "chai": "^4.3.4",
     "dotenv": "^10.0.0",
     "ethereum-waffle": "^3.4.0",
     "ethereumjs-tx": "^2.1.2",
     "ethereumjs-util": "^7.0.10",
-    "ethers": "^5.5.2",
+    "ethers": "^5.3.1",
     "hardhat": "^2.4.1",
     "hardhat-abi-exporter": "^2.2.1",
     "hardhat-contract-sizer": "^2.0.3",
@@ -34,8 +36,6 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "@pollum-io/pegasys-protocol": "latest",
-    "dotenv": "^10.0.0",
     "hardhat-tracer": "^1.0.0-alpha.5"
   },
   "repository": {
