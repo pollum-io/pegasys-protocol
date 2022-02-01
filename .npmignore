@@ -2,4 +2,8 @@ scripts/
 test/
 cache/
 node_modules/
-contracts
+.env
+.env.example
+.github/
+hardhatconfig.ts
+tsconfig.json
