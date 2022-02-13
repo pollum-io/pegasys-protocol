@@ -226,7 +226,7 @@ contract PegasysToken {
     uint256 public mintingAllowedAfter;
 
     /// @notice Minimum time between mints
-    uint32 public constant minimumTimeBetweenMints = 356 days;
+    uint32 public constant minimumTimeBetweenMints = 365 days;
 
     /// @notice Cap on the percentage of totalSupply that can be minted at each mint
     uint8 public mintCap = 3;

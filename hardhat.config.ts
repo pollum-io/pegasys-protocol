@@ -82,10 +82,15 @@ const config: HardhatUserConfig = {
     ]
   },
   networks: {
-
+    hardhat: {
+      hardfork: "london",
+      gasPrice: "auto",
+      initialBaseFeePerGas: 1_000_000_000
+    },
     tanenbaum: {
-      url: 'https://test.rpc.tanenbaum.io:8542/',
-      gasPrice: 470000000000,
+      url: 'https://rpc.tanenbaum.io/',
+      gasPrice: "auto",
+      hardfork: "london",
       chainId: 5700,
       accounts: [DEPLOY_PRIV_KEY]
     },
@@ -96,7 +101,9 @@ const config: HardhatUserConfig = {
     },
     sys: {
       url: 'https://rpc.syscoin.org',
-      gasPrice: 4000000000,
+      gasPrice: "auto",
+      hardfork: "london",
+      chainId: 57,
       accounts: [DEPLOY_PRIV_KEY]
     },
 
