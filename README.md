@@ -23,7 +23,6 @@ Factory address: `0x577CCB2eF53F56AC9b16E0Db6550a6bAe6ba27bc`
 
 Router address: `0xE18c200A70908c89fFA18C628fE1B83aC0065EA4`
 
-Migrator address: `0xcDa164cb93979d714CC8B0D3e1ab829E81469649`
 ## Running
 These contracts are compiled and deployed using [Hardhat](https://hardhat.org/).
 
