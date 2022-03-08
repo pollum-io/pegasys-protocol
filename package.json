@@ -16,6 +16,7 @@
     "@eth-optimism/smock": "^1.1.9",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.3.1",
     "@types/chai": "^4.2.21",
     "@types/mocha": "^8.2.3",
     "@types/node": "^16.3.1",
@@ -29,14 +30,15 @@
     "hardhat-abi-exporter": "^2.2.1",
     "hardhat-contract-sizer": "^2.0.3",
     "hardhat-gas-reporter": "^1.0.4",
+    "hardhat-tracer": "^1.0.0-alpha.5",
+    "merkletreejs": "^0.2.24",
     "mocha": "^7.2.0",
     "openzeppelin-contracts-legacy": "yarn:@openzeppelin/contracts@3.3.0",
     "ts-node": "^10.1.0",
     "tsconfig-paths": "^3.10.1",
-    "typescript": "^4.3.5"
-  },
-  "dependencies": {
-    "hardhat-tracer": "^1.0.0-alpha.5"
+    "typescript": "^4.3.5",
+    "@nomiclabs/hardhat-etherscan": "^3.0.3",
+    "keccak256": "^1.0.6"
   },
   "repository": {
     "type": "git",

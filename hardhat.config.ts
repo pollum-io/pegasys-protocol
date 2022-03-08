@@ -1,5 +1,6 @@
 import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-ethers";
+import "@nomiclabs/hardhat-etherscan";
 import "hardhat-contract-sizer";
 import "hardhat-gas-reporter";
 import "hardhat-tracer";
@@ -79,6 +80,9 @@ const config: HardhatUserConfig = {
           },
         }
       },
+      {
+        version: "0.8.7",
+      }
     ]
   },
   networks: {
@@ -106,12 +110,19 @@ const config: HardhatUserConfig = {
       chainId: 57,
       accounts: [DEPLOY_PRIV_KEY]
     },
+    ropsten: {
+      url: process.env.ROPSTEN_URL,
+      accounts: [DEPLOY_PRIV_KEY]
+    },
 
   },
   contractSizer: {
     alphaSort: false,
     runOnCompile: true,
     disambiguatePaths: false,
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_KEY,
   },
   gasReporter: {
     enabled: true,
