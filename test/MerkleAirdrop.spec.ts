@@ -1,11 +1,9 @@
 import chai, { expect } from 'chai'
 import { Contract, constants, utils, BigNumber } from 'ethers'
 import { solidity, MockProvider, deployContract } from 'ethereum-waffle'
-import { ecsign } from 'ethereumjs-util'
-
 import BalanceTree from '../utils/balance-tree'
 import Distributor from '../artifacts/contracts/earn/MerkleAirdrop.sol/MerkleAirdrop.json'
-import TestERC20 from '../artifacts/contracts/MOCK/MockERC20.sol/Token.json'
+import TestERC20 from '../artifacts/contracts/mock/MockERC20.sol/Token.json'
 import { parseBalanceMap } from '../utils/parse-balance-map'
 
 chai.use(solidity)

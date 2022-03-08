@@ -1,6 +1,6 @@
 {
   "name": "@pollum-io/pegasys-protocol",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Contracts for the Pegasys Dex.",
   "main": "index.js",
   "keywords": [
