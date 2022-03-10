@@ -2,14 +2,13 @@
 pragma solidity ^0.8.2;
 
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/utils/structs/BitMaps.sol";
 
 /**
  * @dev A contract to allow users to claim tokens via a 'merkle airdrop'.
  */
-contract MerkleAirdrop is Ownable {
+contract MerkleAirdrop {
     using BitMaps for BitMaps.BitMap;
 
     address public immutable sender;
