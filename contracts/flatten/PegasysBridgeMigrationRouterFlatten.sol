@@ -1,4 +1,4 @@
-// Sources flattened with hardhat v2.4.3 https://hardhat.org
+// Sources flattened with hardhat v2.7.0 https://hardhat.org
 
 // File contracts/pegasys-core/interfaces/IPegasysERC20.sol
 
@@ -363,7 +363,7 @@ library PegasysLibrary {
                         hex"ff",
                         factory,
                         keccak256(abi.encodePacked(token0, token1)),
-                        hex"9b18ae8e1236e3f9180c7039c71f19ec0d0963fd9a2a74a29fcdcfc467361b9d" // init code hash
+                        hex"85c9b07c539b322c33da730d88df8396983c35a411da73d3d6c2278474890833" // init code hash
                     )
                 )
             )

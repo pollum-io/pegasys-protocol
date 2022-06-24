@@ -226,10 +226,10 @@ contract PegasysToken {
     uint256 public mintingAllowedAfter;
 
     /// @notice Minimum time between mints
-    uint32 public constant minimumTimeBetweenMints = 356 days;
+    uint32 public constant minimumTimeBetweenMints = 365 days;
 
     /// @notice Cap on the percentage of totalSupply that can be minted at each mint
-    uint8 public mintCap = 48;
+    uint8 public mintCap = 3;
 
     /// @notice Allowance amounts on behalf of others
     mapping(address => mapping(address => uint96)) internal allowances;
@@ -374,11 +374,6 @@ contract PegasysToken {
         );
 
         emit Transfer(address(0), dst, amount);
-
-        // if mintCap is greater than 3 divide it in half
-        if (mintCap > 3) {
-            mintCap /= 2;
-        }
 
         // move delegates
         _moveDelegates(address(0), delegates[dst], amount);

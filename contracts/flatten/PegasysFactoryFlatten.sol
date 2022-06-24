@@ -1,4 +1,4 @@
-// Sources flattened with hardhat v2.4.3 https://hardhat.org
+// Sources flattened with hardhat v2.7.0 https://hardhat.org
 
 // File contracts/pegasys-core/interfaces/IPegasysFactory.sol
 
@@ -757,9 +757,6 @@ pragma solidity =0.5.16;
 contract PegasysFactory is IPegasysFactory {
     address public feeTo;
     address public feeToSetter;
-
-    bytes32 public constant INIT_CODE_PAIR_HASH =
-        keccak256(abi.encodePacked(type(PegasysPair).creationCode));
 
     mapping(address => mapping(address => address)) public getPair;
     address[] public allPairs;

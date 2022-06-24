@@ -1,5 +1,6 @@
 import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-ethers";
+import "@nomiclabs/hardhat-etherscan";
 import "hardhat-contract-sizer";
 import "hardhat-gas-reporter";
 import "hardhat-tracer";
@@ -17,7 +18,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
-const DEPLOY_PRIV_KEY = process.env.DEPLOY_ACCOUNT_PRIVATE_KEY || "8da4ef21b864d2cc526dbdb2a120bd2874c36c9d0a1fb7f8c63d7f7a8b41de8f";
+const DEPLOY_PRIV_KEY: string = process.env.DEPLOY_ACCOUNT_PRIVATE_KEY || '';
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -44,6 +45,9 @@ const config: HardhatUserConfig = {
             },
           },
         }
+      },
+      {
+        version: "0.6.12"
       },
       {
         version: "0.7.0"
@@ -76,13 +80,21 @@ const config: HardhatUserConfig = {
           },
         }
       },
+      {
+        version: "0.8.7",
+      }
     ]
   },
   networks: {
-
+    hardhat: {
+      hardfork: "london",
+      gasPrice: "auto",
+      initialBaseFeePerGas: 1_000_000_000
+    },
     tanenbaum: {
-      url: 'https://test.rpc.tanenbaum.io:8542/',
-      gasPrice: 470000000000,
+      url: 'https://rpc.tanenbaum.io/',
+      gasPrice: "auto",
+      hardfork: "london",
       chainId: 5700,
       accounts: [DEPLOY_PRIV_KEY]
     },
@@ -93,7 +105,13 @@ const config: HardhatUserConfig = {
     },
     sys: {
       url: 'https://rpc.syscoin.org',
-      gasPrice: 4000000000,
+      gasPrice: "auto",
+      hardfork: "london",
+      chainId: 57,
+      accounts: [DEPLOY_PRIV_KEY]
+    },
+    ropsten: {
+      url: process.env.ROPSTEN_URL,
       accounts: [DEPLOY_PRIV_KEY]
     },
 
@@ -102,6 +120,9 @@ const config: HardhatUserConfig = {
     alphaSort: false,
     runOnCompile: true,
     disambiguatePaths: false,
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_KEY,
   },
   gasReporter: {
     enabled: true,
