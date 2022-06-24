@@ -81,7 +81,7 @@ const config: HardhatUserConfig = {
         }
       },
       {
-        version: "0.8.7",
+        version: "0.8.10",
       }
     ]
   },
@@ -108,7 +108,8 @@ const config: HardhatUserConfig = {
       gasPrice: "auto",
       hardfork: "london",
       chainId: 57,
-      accounts: [DEPLOY_PRIV_KEY]
+      accounts: [DEPLOY_PRIV_KEY],
+      gasMultiplier: 3
     },
     ropsten: {
       url: process.env.ROPSTEN_URL,

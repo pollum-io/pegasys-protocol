@@ -13,8 +13,6 @@ Factory address: `0x7Bbbb6abaD521dE677aBe089C85b29e3b2021496`
 
 Router address: `0x017dAd2578372CAEE5c6CddfE35eEDB3728544C4`
 
-Migrator address: `0xd4F7cE01bef778359ff02dab31cA48f431C630d5`
-
 MiniChefV2: `0x27F037100118548c63F945e284956073D1DC76dE`
 
 ### Syscoin Tanenbaum Testnet:
