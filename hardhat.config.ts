@@ -98,6 +98,13 @@ const config: HardhatUserConfig = {
       chainId: 5700,
       accounts: [DEPLOY_PRIV_KEY]
     },
+    rollux: {
+      url: 'https://testnet.rollux.com:2814/',
+      gasPrice: "auto",
+      hardfork: "london",
+      chainId: 2814,
+      accounts: [DEPLOY_PRIV_KEY]
+    },
     localhost: {
       gasPrice: 470000000000,
       chainId: 43114,
