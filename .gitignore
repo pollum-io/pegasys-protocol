@@ -1,5 +1,6 @@
 contracts/TestERC20.sol
 contracts/WSYS.sol
+contracts/Distributor.sol
 scripts/
 cache/
 node_modules/

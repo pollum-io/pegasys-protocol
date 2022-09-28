@@ -81,7 +81,7 @@ const config: HardhatUserConfig = {
         }
       },
       {
-        version: "0.8.7",
+        version: "0.8.10",
       }
     ]
   },
@@ -98,6 +98,13 @@ const config: HardhatUserConfig = {
       chainId: 5700,
       accounts: [DEPLOY_PRIV_KEY]
     },
+    rollux: {
+      url: 'https://testnet.rollux.com:2814/',
+      gasPrice: "auto",
+      hardfork: "london",
+      chainId: 2814,
+      accounts: [DEPLOY_PRIV_KEY]
+    },
     localhost: {
       gasPrice: 470000000000,
       chainId: 43114,
@@ -108,7 +115,8 @@ const config: HardhatUserConfig = {
       gasPrice: "auto",
       hardfork: "london",
       chainId: 57,
-      accounts: [DEPLOY_PRIV_KEY]
+      accounts: [DEPLOY_PRIV_KEY],
+      gasMultiplier: 3
     },
     ropsten: {
       url: process.env.ROPSTEN_URL,

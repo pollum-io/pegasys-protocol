@@ -187,7 +187,7 @@ contract PegasysBridgeMigrationRouter {
             "PegasysBridgeMigrationRouter: liquidityPairFrom address 0"
         );
         require(
-            pairA != address(0),
+            pairB != address(0),
             "PegasysBridgeMigrationRouter: liquidityPairTo address 0"
         );
         require(
