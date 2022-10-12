@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.7.6;
 
 import "openzeppelin-contracts-legacy/access/Ownable.sol";
@@ -31,7 +32,7 @@ contract StakingRewards is ReentrancyGuard, Ownable {
 
     /* ========== CONSTRUCTOR ========== */
 
-    constructor(address _rewardsToken, address _stakingToken) public {
+    constructor(address _rewardsToken, address _stakingToken) {
         rewardsToken = IERC20(_rewardsToken);
         stakingToken = IERC20(_stakingToken);
     }
