@@ -27,7 +27,7 @@ contract GovernorAlpha {
 
     /// @notice The duration of voting on a proposal, in blocks
     function votingPeriod() public pure virtual returns (uint) {
-        return 17280;
+        return 1728;
     } // ~3 days in blocks (assuming 150s blocks)
 
     /// @notice The address of the Pegasys Protocol Timelock
@@ -140,7 +140,7 @@ contract GovernorAlpha {
         address timelock_,
         address psys_,
         address guardian_
-    ) public {
+    ) {
         timelock = TimelockInterface(timelock_);
         psys = PsysInterface(psys_);
         guardian = guardian_;
