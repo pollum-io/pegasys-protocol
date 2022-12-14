@@ -10,8 +10,8 @@ import "openzeppelin-contracts-legacy/token/ERC20/IERC20.sol";
 /**
  * @title Pegasys Staking
  * @author Trader Joe & Pegasys
- * @notice PegasysStaking is a contract that allows PSYS deposits and receives stablecoins sent by MoneyMaker's
- * harvests. Users deposit PSYS and receive a share of what has been sent by MoneyMaker based on their participation of
+ * @notice PegasysStaking is a contract that allows PSYS deposits and receives PSYS sent by FeeCollector's
+ * harvests. Users deposit PSYS and receive a share of what has been sent by FeeCollector based on their participation of
  * the total deposited PSYS. It is similar to a MasterChef, but we allow for claiming of different reward tokens
  * (in case at some point we wish to change the stablecoin rewarded).
  * Every time `updateReward(token)` is called, We distribute the balance of that tokens as rewards to users that are
@@ -93,7 +93,7 @@ contract PegasysStaking is Ownable {
     /**
      * @notice Constructor of PegasysStaking contract
      * @dev This contract needs to receive an ERC20 `_rewardToken` in order to distribute them
-     * (with MoneyMaker in our case)
+     * (with FeeCollector in our case)
      * @param _rewardToken The address of the ERC20 reward token
      * @param _psys The address of the PSYS token
      * @param _feeReceiver The address where deposit fees will be sent
@@ -183,11 +183,10 @@ contract PegasysStaking is Ownable {
      * @return The amount of PSYS user has deposited
      * @return The reward debt for the chosen token
      */
-    function getUserInfo(address _user, IERC20 _rewardToken)
-        external
-        view
-        returns (uint256, uint256)
-    {
+    function getUserInfo(
+        address _user,
+        IERC20 _rewardToken
+    ) external view returns (uint256, uint256) {
         UserInfo storage user = userInfo[_user];
         return (user.amount, user.rewardDebt[_rewardToken]);
     }
@@ -245,10 +244,9 @@ contract PegasysStaking is Ownable {
      * @notice Set the deposit fee percent
      * @param _depositFeePercent The new deposit fee percent
      */
-    function setDepositFeePercent(uint256 _depositFeePercent)
-        external
-        onlyOwner
-    {
+    function setDepositFeePercent(
+        uint256 _depositFeePercent
+    ) external onlyOwner {
         require(
             _depositFeePercent <= 5e17,
             "PegasysStaking: deposit fee can't be greater than 50%"
@@ -264,11 +262,10 @@ contract PegasysStaking is Ownable {
      * @param _token The address of the token
      * @return `_user`'s pending reward token
      */
-    function pendingReward(address _user, IERC20 _token)
-        external
-        view
-        returns (uint256)
-    {
+    function pendingReward(
+        address _user,
+        IERC20 _token
+    ) external view returns (uint256) {
         require(isRewardToken[_token], "PegasysStaking: wrong reward token");
         UserInfo storage user = userInfo[_user];
         uint256 _totalPsys = internalPsysBalance;
