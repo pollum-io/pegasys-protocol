@@ -71,6 +71,9 @@ contract PegasysStaking is Ownable {
     /// @notice Emitted when owner changes the deposit fee percentage
     event DepositFeeChanged(uint256 newFee, uint256 oldFee);
 
+    /// @notice Emitted when owner changes the fee receiver address
+    event FeeReceiverChanged(address newReceiver, address oldReceiver);
+
     /// @notice Emitted when a user withdraws PSYS
     event Withdraw(address indexed user, uint256 amount);
 
@@ -238,6 +241,20 @@ contract PegasysStaking is Ownable {
             }
         }
         emit RewardTokenRemoved(address(_rewardToken));
+    }
+
+    /**
+     * @notice Set the fee receiver
+     * @param _feeReceiver The new fee receiver address
+     */
+    function setFeeReceiver(address _feeReceiver) external onlyOwner {
+        require(
+            _feeReceiver != feeReceiver,
+            "PegasysStaking: fee receiver can't be the same"
+        );
+        address oldReceiver = feeReceiver;
+        feeReceiver = _feeReceiver;
+        emit FeeReceiverChanged(_feeReceiver, oldReceiver);
     }
 
     /**
