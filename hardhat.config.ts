@@ -105,6 +105,13 @@ const config: HardhatUserConfig = {
       chainId: 2814,
       accounts: [DEPLOY_PRIV_KEY]
     },
+    bedrock: {
+      url: 'https://bedrock.rollux.com:9545/',
+      gasPrice: "auto",
+      hardfork: "london",
+      chainId: 57000,
+      accounts: [DEPLOY_PRIV_KEY]
+    },
     localhost: {
       gasPrice: 470000000000,
       chainId: 43114,
