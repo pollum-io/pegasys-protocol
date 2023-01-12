@@ -6,6 +6,7 @@ import "openzeppelin-contracts-legacy/math/SafeMath.sol";
 import "openzeppelin-contracts-legacy/token/ERC20/SafeERC20.sol";
 import "openzeppelin-contracts-legacy/access/Ownable.sol";
 import "openzeppelin-contracts-legacy/token/ERC20/IERC20.sol";
+import "../pegasys-core/interfaces/IPegasysERC20.sol";
 
 /**
  * @title Pegasys Staking
@@ -180,6 +181,70 @@ contract PegasysStaking is Ownable {
     }
 
     /**
+     * @notice Deposit PSYS for reward token allocation with permit
+     * @param _amount The amount of PSYS to deposit
+     */
+    function depositWithPermit(
+        uint256 _amount,
+        uint256 deadline,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) external {
+        UserInfo storage user = userInfo[_msgSender()];
+
+        uint256 _fee = _amount.mul(depositFeePercent).div(
+            DEPOSIT_FEE_PERCENT_PRECISION
+        );
+        uint256 _amountMinusFee = _amount.sub(_fee);
+
+        uint256 _previousAmount = user.amount;
+        uint256 _newAmount = user.amount.add(_amountMinusFee);
+        user.amount = _newAmount;
+
+        uint256 _len = rewardTokens.length;
+        for (uint256 i; i < _len; i++) {
+            IERC20 _token = rewardTokens[i];
+            updateReward(_token);
+
+            uint256 _previousRewardDebt = user.rewardDebt[_token];
+            user.rewardDebt[_token] = _newAmount
+                .mul(accRewardPerShare[_token])
+                .div(ACC_REWARD_PER_SHARE_PRECISION);
+
+            if (_previousAmount != 0) {
+                uint256 _pending = _previousAmount
+                    .mul(accRewardPerShare[_token])
+                    .div(ACC_REWARD_PER_SHARE_PRECISION)
+                    .sub(_previousRewardDebt);
+                if (_pending != 0) {
+                    safeTokenTransfer(_token, _msgSender(), _pending);
+                    emit ClaimReward(_msgSender(), address(_token), _pending);
+                }
+            }
+        }
+
+        // permit
+        IPegasysERC20(address(psys)).permit(
+            msg.sender,
+            address(this),
+            _amount,
+            deadline,
+            v,
+            r,
+            s
+        );
+
+        psys.safeTransferFrom(_msgSender(), address(this), _amount);
+
+        internalPsysBalance = internalPsysBalance.add(_amountMinusFee);
+
+        safeTokenTransfer(psys, _msgSender(), _fee);
+
+        emit Deposit(_msgSender(), _amountMinusFee, _fee);
+    }
+
+    /**
      * @notice Get user info
      * @param _user The address of the user
      * @param _rewardToken The address of the reward token
@@ -265,8 +330,8 @@ contract PegasysStaking is Ownable {
         uint256 _depositFeePercent
     ) external onlyOwner {
         require(
-            _depositFeePercent <= 5e17,
-            "PegasysStaking: deposit fee can't be greater than 50%"
+            _depositFeePercent <= 3e16,
+            "PegasysStaking: deposit fee can't be greater than 3%"
         );
         uint256 oldFee = depositFeePercent;
         depositFeePercent = _depositFeePercent;
