@@ -35,7 +35,7 @@ contract FeeCollector is Ownable {
     EnumerableSet.AddressSet private _isAuth;
 
     modifier onlyAuth() {
-        require(_isAuth.contains(_msgSender()), "MoneyMaker: FORBIDDEN");
+        require(_isAuth.contains(_msgSender()), "FeeCollector: FORBIDDEN");
         _;
     }
 
@@ -98,7 +98,7 @@ contract FeeCollector is Ownable {
     function addAuth(address _auth) external onlyOwner {
         require(
             _isAuth.add(_auth),
-            "MoneyMaker: Address is already authorized"
+            "FeeCollector: Address is already authorized"
         );
         emit AddAuthorizedAddress(_auth);
     }
@@ -106,7 +106,10 @@ contract FeeCollector is Ownable {
     /// @notice Remove a user of authorized addresses
     /// @param _auth The address to remove
     function removeAuth(address _auth) external onlyOwner {
-        require(_isAuth.remove(_auth), "MoneyMaker: Address is not authorized");
+        require(
+            _isAuth.remove(_auth),
+            "FeeCollector: Address is not authorized"
+        );
         emit RemoveAuthorizedAddress(_auth);
     }
 
@@ -130,7 +133,7 @@ contract FeeCollector is Ownable {
         // Checks
         require(
             token != tokenTo && token != wsys && token != bridge,
-            "MoneyMaker: Invalid bridge"
+            "FeeCollector: Invalid bridge"
         );
 
         // Effects
@@ -185,7 +188,7 @@ contract FeeCollector is Ownable {
     // C6: It's not a fool proof solution, but it prevents flash loans, so here it's ok to use tx.origin
     modifier onlyEOA() {
         // Try to make flash-loan exploit harder to do by only allowing externally owned addresses.
-        require(_msgSender() == tx.origin, "MoneyMaker: must use EOA");
+        require(_msgSender() == tx.origin, "FeeCollector: must use EOA");
         _;
     }
 
@@ -201,7 +204,7 @@ contract FeeCollector is Ownable {
     ) external onlyEOA onlyAuth {
         require(
             slippage < 5_000,
-            "MoneyMaker: slippage needs to be lower than 50%"
+            "FeeCollector: slippage needs to be lower than 50%"
         );
         _convert(token0, token1, slippage);
     }
@@ -219,11 +222,11 @@ contract FeeCollector is Ownable {
         // TODO: This can be optimized a fair bit, but this is safer and simpler for now
         require(
             slippage < 5_000,
-            "MoneyMaker: slippage needs to be lower than 50%"
+            "FeeCollector: slippage needs to be lower than 50%"
         );
         require(
             token0.length == token1.length,
-            "MoneyMaker: arrays length don't match"
+            "FeeCollector: arrays length don't match"
         );
 
         uint256 len = token0.length;
@@ -251,7 +254,7 @@ contract FeeCollector is Ownable {
             amount1 = 0;
         } else {
             IPegasysPair pair = IPegasysPair(factory.getPair(token0, token1));
-            require(address(pair) != address(0), "MoneyMaker: Invalid pair");
+            require(address(pair) != address(0), "FeeCollector: Invalid pair");
 
             IERC20(address(pair)).safeTransfer(
                 address(pair),
@@ -384,7 +387,7 @@ contract FeeCollector is Ownable {
         // Checks
         // X1 - X5: OK
         IPegasysPair pair = IPegasysPair(factory.getPair(fromToken, toToken));
-        require(address(pair) != address(0), "MoneyMaker: Cannot convert");
+        require(address(pair) != address(0), "FeeCollector: Cannot convert");
 
         (uint256 reserve0, uint256 reserve1, ) = pair.getReserves();
         (uint256 reserveInput, uint256 reserveOutput) = fromToken ==
@@ -413,7 +416,7 @@ contract FeeCollector is Ownable {
                     reserveOutput,
                     reserveInput
                 ) >= amountInput.mul(rest).mul(rest).div(100_000_000),
-                "MoneyMaker: Slippage caught"
+                "FeeCollector: Slippage caught"
             );
         }
 

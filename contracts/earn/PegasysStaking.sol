@@ -237,7 +237,7 @@ contract PegasysStaking is Ownable {
 
         internalPsysBalance = internalPsysBalance.add(_amountMinusFee);
         psys.safeTransferFrom(_msgSender(), address(this), _amount);
-        safeTokenTransfer(psys, feeReceiver, _fee);
+        psys.safeTransfer(feeReceiver, _fee);
 
         emit Deposit(_msgSender(), _amountMinusFee, _fee);
     }

@@ -19,7 +19,7 @@ TimeLock: `0x2C4ce5DcE61b22d9eed75136CD5C8bbd788A243B`
 
 GovernorAlpha: `0x633Bdeb5D4b5f93933833A692e230a7d48fC2d77`
 
-PegasysStaking: `0xD50b0beE43a5058efaF56b3703Cb1F97e3D127c6`
+PegasysStaking: `0x1e6dc4CB2F98817A0E3D850Bba7aEfa3CFcdE55F`
 
 ### Syscoin Tanenbaum Testnet:
 
