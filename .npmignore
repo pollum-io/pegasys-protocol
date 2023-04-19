@@ -7,3 +7,6 @@ node_modules/
 .github/
 hardhat.config.ts
 tsconfig.json
+contracts/TestERC20.sol
+contracts/WSYS.sol
+contracts/Distributor.sol
